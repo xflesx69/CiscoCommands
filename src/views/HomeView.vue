@@ -1,5 +1,5 @@
 <script lang="ts">
-import { CiscoCommands } from '@/assets/types/cisco.ts';
+import type { CiscoCommands } from '@/assets/types/cisco.ts';
 export default {
   name: 'HomeView',
   data() {
@@ -7,17 +7,17 @@ export default {
       searchQuery: '',
       selectedCategory: 'all',
       // translation mapok
-      modeTranslations: {
-        'User EXEC': 'Felhasználói EXEC',
-        'Privileged EXEC': 'Privilegizált EXEC',
-        'Global Configuration': 'Globális Konfiguráció',
-        'Interface Configuration': 'Interfész Konfiguráció',
-        'Line Configuration': 'Vonal Konfiguráció',
-        'Router Configuration': 'Router Konfiguráció',
-        'VLAN Configuration': 'VLAN Konfiguráció',
-        'Any Configuration Mode': 'Bármely Konfigurációs Mód',
-        'User EXEC / Privileged EXEC': 'Felhasználói EXEC / Privilegizált EXEC'
-      },
+      /*       modeTranslations: {
+              'User EXEC': 'Felhasználói EXEC',
+              'Privileged EXEC': 'Privilegizált EXEC',
+              'Global Configuration': 'Globális Konfiguráció',
+              'Interface Configuration': 'Interfész Konfiguráció',
+              'Line Configuration': 'Vonal Konfiguráció',
+              'Router Configuration': 'Router Konfiguráció',
+              'VLAN Configuration': 'VLAN Konfiguráció',
+              'Any Configuration Mode': 'Bármely Konfigurációs Mód',
+              'User EXEC / Privileged EXEC': 'Felhasználói EXEC / Privilegizált EXEC'
+            }, */
       Categorys: [
         {
           id: 'system-info',
@@ -111,7 +111,7 @@ export default {
           example: 'show version',
           category: 'system-info',
           keywords: ['verzió', 'állapot', 'info', 'cisco ios', 'hardver', 'szoftver'],
-          mode: 'User EXEC / Privileged EXEC'
+          mode: 'Felhasználói EXEC / Privilegizált EXEC'
         },
         {
           command: 'show running-config',
@@ -119,7 +119,7 @@ export default {
           example: 'show running-config',
           category: 'system-info',
           keywords: ['konfiguráció', 'beállítás', 'futó', 'aktuális', 'config'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'show interface',
@@ -127,7 +127,7 @@ export default {
           example: 'show interface gi0/1',
           category: 'interface',
           keywords: ['interfész', 'port', 'állapot', 'statisztika', 'ethernet'],
-          mode: 'User EXEC / Privileged EXEC'
+          mode: 'Felhasználói EXEC / Privilegizált EXEC'
         },
         {
           command: 'interface gigabitethernet',
@@ -135,7 +135,7 @@ export default {
           example: 'interface gigabitethernet 0/1',
           category: 'interface',
           keywords: ['interfész', 'konfiguráció', 'gigabit', 'port', 'belépés'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'show ip route',
@@ -143,7 +143,7 @@ export default {
           example: 'show ip route',
           category: 'routing',
           keywords: ['route', 'útvonal', 'ip', 'routing', 'tábla'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'router ospf',
@@ -151,7 +151,7 @@ export default {
           example: 'router ospf 1',
           category: 'routing',
           keywords: ['ospf', 'routing', 'protokoll', 'konfiguráció', 'area'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'access-list',
@@ -159,7 +159,7 @@ export default {
           example: 'access-list 101 permit ip any any',
           category: 'security',
           keywords: ['acl', 'biztonság', 'szűrés', 'forgalom', 'engedélyezés'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'vlan',
@@ -167,7 +167,7 @@ export default {
           example: 'vlan 10',
           category: 'vlan',
           keywords: ['vlan', 'hálózat', 'szegmentálás', 'virtuális', 'lan'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'switchport mode trunk',
@@ -175,7 +175,7 @@ export default {
           example: 'switchport mode trunk',
           category: 'vlan',
           keywords: ['trunk', 'vlan', 'kapcsoló', 'port', 'több vlan'],
-          mode: 'Interface Configuration'
+          mode: 'Interfész Konfiguráció'
         },
         {
           command: 'hostname',
@@ -183,7 +183,7 @@ export default {
           example: 'hostname name',
           category: 'basic-config',
           keywords: ['név', 'állomásnév', 'eszköznév', 'azonosító', 'változtatás'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'enable password',
@@ -191,7 +191,7 @@ export default {
           example: 'enable password 12345',
           category: 'security',
           keywords: ['jelszó', 'enable', 'privilegizált', 'hozzáférés', 'védelem'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'enable secret',
@@ -199,7 +199,7 @@ export default {
           example: 'enable secret 12345',
           category: 'security',
           keywords: ['jelszó', 'titkosított', 'secret', 'védelem', 'privilegizált'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'line console password',
@@ -207,7 +207,7 @@ export default {
           example: 'line console 0\npassword 12345\nlogin',
           category: 'security',
           keywords: ['konzol', 'jelszó', 'védelem', 'hozzáférés', 'helyi'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'line vty password',
@@ -215,7 +215,7 @@ export default {
           example: 'line vty 0 15\npassword 12345\nlogin',
           category: 'security',
           keywords: ['vty', 'telnet', 'jelszó', 'terminál', 'távoli'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'service password-encryption',
@@ -223,7 +223,7 @@ export default {
           example: 'service password-encryption',
           category: 'security',
           keywords: ['titkosítás', 'jelszó', 'védelem', 'biztonság', 'encryption'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'ip default-gateway',
@@ -231,7 +231,7 @@ export default {
           example: 'ip default-gateway 127.0.0.1',
           category: 'basic-config',
           keywords: ['átjáró', 'gateway', 'switch', 'alapértelmezett', 'ip'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'interface vlan config',
@@ -239,7 +239,7 @@ export default {
           example: 'interface vlan1\nip address 172.19.1.253 255.255.255.0\nno shutdown',
           category: 'interface',
           keywords: ['vlan', 'interface', 'ip', 'beállítás', 'management'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'router rip',
@@ -247,7 +247,7 @@ export default {
           example: 'router rip\nversion 2',
           category: 'routing',
           keywords: ['rip', 'routing', 'protokoll', 'version', 'konfiguráció'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'router ospf network',
@@ -255,7 +255,7 @@ export default {
           example: 'router ospf 1\nnetwork 192.168.2.0 0.0.0.255 area 0\nnetwork 192.168.10.0 0.0.0.255 area 0',
           category: 'routing',
           keywords: ['ospf', 'routing', 'protokoll', 'area', 'hálózat'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'interface ip config',
@@ -263,7 +263,7 @@ export default {
           example: 'int gi0/0\nip address 192.168.11.33 255.255.255.224\nno sh',
           category: 'interface',
           keywords: ['interface', 'ip', 'cím', 'konfiguráció', 'beállítás'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'ipv6 interface config',
@@ -271,7 +271,7 @@ export default {
           example: 'int gi0/0\nipv6 enable\nipv6 address 2001:db8:acad:1::1/64\nipv6 address fe80::1 link-local\nno sh',
           category: 'ipv6',
           keywords: ['ipv6', 'interface', 'cím', 'konfiguráció', 'link-local'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'ipv6 unicast-routing',
@@ -279,7 +279,7 @@ export default {
           example: 'ipv6 unicast-routing',
           category: 'ipv6',
           keywords: ['ipv6', 'unicast', 'routing', 'forgalomirányítás', 'engedélyezés'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'username',
@@ -287,7 +287,7 @@ export default {
           example: 'username admin password AdPass123',
           category: 'security',
           keywords: ['felhasználó', 'jelszó', 'helyi', 'hozzáférés', 'védelem'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'line vty login local',
@@ -295,7 +295,7 @@ export default {
           example: 'line vty 0 15\nlogin local',
           category: 'security',
           keywords: ['vty', 'helyi', 'felhasználó', 'hitelesítés', 'védelem'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'ssh setup',
@@ -303,7 +303,7 @@ export default {
           example: 'ip domain-name proba.hu\ncrypto key generate rsa\nHow many bits in the modulus [512]: 1024\nline vty 0 15\ntransport input ssh',
           category: 'ssh',
           keywords: ['ssh', 'titkosítás', 'távoli', 'hozzáférés', 'kulcs'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'description',
@@ -311,7 +311,7 @@ export default {
           example: 'int gi0/0\ndescription Office_LAN',
           category: 'interface',
           keywords: ['megjegyzés', 'leírás', 'interface', 'dokumentáció', 'azonosítás'],
-          mode: 'Interface Configuration'
+          mode: 'Interfész Konfiguráció'
         },
         {
           command: 'banner motd',
@@ -319,7 +319,7 @@ export default {
           example: 'banner motd "Csak megfelelo jogosultsaggal hasznalja a kapcsolatot"',
           category: 'basic-config',
           keywords: ['üzenet', 'motd', 'figyelmeztetés', 'bejelentkezés', 'jogi'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'copy running-config startup-config',
@@ -327,7 +327,7 @@ export default {
           example: 'copy running-config startup-config',
           category: 'basic-config',
           keywords: ['mentés', 'konfiguráció', 'startup', 'running', 'tárolás'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'show clock',
@@ -335,7 +335,7 @@ export default {
           example: 'show clock',
           category: 'system-info',
           keywords: ['idő', 'dátum', 'óra', 'rendszeridő', 'időzóna'],
-          mode: 'User EXEC'
+          mode: 'Felhasználói EXEC'
         },
         {
           command: 'show processes cpu',
@@ -343,7 +343,7 @@ export default {
           example: 'show processes cpu',
           category: 'system-info',
           keywords: ['cpu', 'folyamat', 'terhelés', 'használat', 'statisztika'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'show memory',
@@ -351,7 +351,7 @@ export default {
           example: 'show memory',
           category: 'system-info',
           keywords: ['memória', 'ram', 'használat', 'foglalt', 'szabad'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'show inventory',
@@ -359,7 +359,7 @@ export default {
           example: 'show inventory',
           category: 'system-info',
           keywords: ['hardver', 'eszköz', 'sorozatszám', 'modell', 'leltár'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'show tech-support',
@@ -367,7 +367,7 @@ export default {
           example: 'show tech-support',
           category: 'system-info',
           keywords: ['diagnosztika', 'támogatás', 'információ', 'hibaelhárítás', 'technikai'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'show ip interface brief',
@@ -375,7 +375,7 @@ export default {
           example: 'show ip interface brief',
           category: 'interface',
           keywords: ['interfész', 'állapot', 'ip', 'áttekintés', 'gyors'],
-          mode: 'User EXEC'
+          mode: 'Felhasználói EXEC'
         },
         {
           command: 'interface range',
@@ -383,7 +383,7 @@ export default {
           example: 'interface range gigabitethernet 0/1-24',
           category: 'interface',
           keywords: ['interfész', 'tartomány', 'több', 'köteg', 'csoport'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'speed',
@@ -391,7 +391,7 @@ export default {
           example: 'interface gigabitethernet 0/1<br>speed 100',
           category: 'interface',
           keywords: ['sebesség', 'port', 'beállítás', 'mbps', 'gigabit'],
-          mode: 'Interface Configuration'
+          mode: 'Interfész Konfiguráció'
         },
         {
           command: 'duplex',
@@ -399,7 +399,7 @@ export default {
           example: 'interface gigabitethernet 0/1<br>duplex full',
           category: 'interface',
           keywords: ['duplex', 'full', 'half', 'kommunikáció', 'adatátvitel'],
-          mode: 'Interface Configuration'
+          mode: 'Interfész Konfiguráció'
         },
         {
           command: 'mdix auto',
@@ -407,7 +407,7 @@ export default {
           example: 'interface fastethernet 0/1<br>mdix auto',
           category: 'interface',
           keywords: ['mdix', 'kábel', 'kereszt', 'automatikus', 'érzékelés'],
-          mode: 'Interface Configuration'
+          mode: 'Interfész Konfiguráció'
         },
         {
           command: 'ip route',
@@ -415,7 +415,7 @@ export default {
           example: 'ip route 192.168.10.0 255.255.255.0 192.168.1.2',
           category: 'routing',
           keywords: ['statikus', 'útvonal', 'konfiguráció', 'alapértelmezett', 'hálózat'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'show ip protocols',
@@ -423,7 +423,7 @@ export default {
           example: 'show ip protocols',
           category: 'routing',
           keywords: ['protokoll', 'routing', 'konfiguráció', 'időzítő', 'állapot'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'router eigrp',
@@ -431,7 +431,7 @@ export default {
           example: 'router eigrp 100<br>network 192.168.1.0 0.0.0.255',
           category: 'routing',
           keywords: ['eigrp', 'routing', 'protokoll', 'konfiguráció', 'autonóm-rendszer'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'redistribute',
@@ -439,7 +439,7 @@ export default {
           example: 'router ospf 1<br>redistribute eigrp 100 subnets',
           category: 'routing',
           keywords: ['újraelosztás', 'routing', 'protokoll', 'forgalom', 'konverzió'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'default-information originate',
@@ -447,7 +447,7 @@ export default {
           example: 'router ospf 1<br>default-information originate always',
           category: 'routing',
           keywords: ['alapértelmezett', 'útvonal', 'hirdetés', 'originate', 'routing'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'ip access-list',
@@ -455,7 +455,7 @@ export default {
           example: 'ip access-list extended BLOCK_WEB<br>deny tcp any any eq 80<br>permit ip any any',
           category: 'security',
           keywords: ['acl', 'hozzáférés', 'szűrés', 'biztonság', 'szabály'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'aaa new-model',
@@ -463,7 +463,7 @@ export default {
           example: 'aaa new-model',
           category: 'security',
           keywords: ['aaa', 'hitelesítés', 'jogosultság', 'elszámolás', 'biztonság'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'port-security',
@@ -471,7 +471,7 @@ export default {
           example: 'interface fastethernet 0/1<br>switchport mode access<br>switchport port-security<br>switchport port-security maximum 2',
           category: 'security',
           keywords: ['port', 'biztonság', 'mac', 'korlátozás', 'hozzáférés'],
-          mode: 'Interface Configuration'
+          mode: 'Interfész Konfiguráció'
         },
         {
           command: 'login block-for',
@@ -479,7 +479,7 @@ export default {
           example: 'login block-for 300 attempts 3 within 120',
           category: 'security',
           keywords: ['bejelentkezés', 'blokkolás', 'védelem', 'kizárás', 'kísérlet'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'ip dhcp snooping',
@@ -487,7 +487,7 @@ export default {
           example: 'ip dhcp snooping<br>ip dhcp snooping vlan 10,20',
           category: 'security',
           keywords: ['dhcp', 'snooping', 'biztonság', 'támadás', 'védelem'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'show vlan',
@@ -495,7 +495,7 @@ export default {
           example: 'show vlan',
           category: 'vlan',
           keywords: ['vlan', 'lista', 'port', 'hozzárendelés', 'állapot'],
-          mode: 'User EXEC'
+          mode: 'Felhasználói EXEC'
         },
         {
           command: 'switchport access vlan',
@@ -503,7 +503,7 @@ export default {
           example: 'interface gigabitethernet 0/1<br>switchport mode access<br>switchport access vlan 10',
           category: 'vlan',
           keywords: ['vlan', 'hozzárendelés', 'port', 'access', 'kapcsoló'],
-          mode: 'Interface Configuration'
+          mode: 'Interfész Konfiguráció'
         },
         {
           command: 'vtp',
@@ -511,7 +511,7 @@ export default {
           example: 'vtp mode server<br>vtp domain CISCO_DOMAIN<br>vtp password VtpP@ss',
           category: 'vlan',
           keywords: ['vtp', 'domain', 'szerver', 'kliens', 'vlan'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'switchport voice vlan',
@@ -519,7 +519,7 @@ export default {
           example: 'interface gigabitethernet 0/1<br>switchport voice vlan 20',
           category: 'vlan',
           keywords: ['voice', 'vlan', 'telefon', 'hang', 'ip telefon'],
-          mode: 'Interface Configuration'
+          mode: 'Interfész Konfiguráció'
         },
         {
           command: 'switchport trunk allowed vlan',
@@ -527,7 +527,7 @@ export default {
           example: 'interface gigabitethernet 0/1<br>switchport trunk allowed vlan 10,20,30',
           category: 'vlan',
           keywords: ['trunk', 'vlan', 'engedélyezett', 'lista', 'szűrés'],
-          mode: 'Interface Configuration'
+          mode: 'Interfész Konfiguráció'
         },
 
         {
@@ -536,7 +536,7 @@ export default {
           example: 'clock set 15:30:00 Jul 15 2023',
           category: 'basic-config',
           keywords: ['óra', 'idő', 'dátum', 'beállítás', 'rendszeridő'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'exec-timeout',
@@ -544,7 +544,7 @@ export default {
           example: 'line console 0<br>exec-timeout 10 0',
           category: 'basic-config',
           keywords: ['időtúllépés', 'konzol', 'automatikus', 'kilépés', 'biztonsági'],
-          mode: 'Line Configuration'
+          mode: 'Vonal Konfiguráció'
         },
         {
           command: 'logging',
@@ -552,7 +552,7 @@ export default {
           example: 'logging host 192.168.1.100<br>logging trap notifications',
           category: 'basic-config',
           keywords: ['naplózás', 'syslog', 'hibajelentés', 'esemény', 'követés'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'ntp server',
@@ -560,7 +560,7 @@ export default {
           example: 'ntp server 192.168.1.5',
           category: 'basic-config',
           keywords: ['ntp', 'idő', 'szinkronizálás', 'szerver', 'hálózati'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'no ip domain-lookup',
@@ -568,7 +568,7 @@ export default {
           example: 'no ip domain-lookup',
           category: 'basic-config',
           keywords: ['dns', 'domain', 'keresés', 'kikapcsolás', 'gyorsítás'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
 
         {
@@ -577,7 +577,7 @@ export default {
           example: 'ipv6 route 2001:db8::/64 2001:db8:0:1::1',
           category: 'ipv6',
           keywords: ['ipv6', 'útvonal', 'statikus', 'routing', 'konfiguráció'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'show ipv6 interface',
@@ -585,7 +585,7 @@ export default {
           example: 'show ipv6 interface gigabitethernet 0/0',
           category: 'ipv6',
           keywords: ['ipv6', 'interfész', 'állapot', 'cím', 'konfiguráció'],
-          mode: 'User EXEC'
+          mode: 'Felhasználói EXEC'
         },
         {
           command: 'ipv6 access-list',
@@ -593,7 +593,7 @@ export default {
           example: 'ipv6 access-list BLOCK_TELNET<br>deny tcp any any eq 23<br>permit ipv6 any any',
           category: 'ipv6',
           keywords: ['ipv6', 'acl', 'hozzáférés', 'lista', 'szűrés'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'ipv6 dhcp server',
@@ -601,7 +601,7 @@ export default {
           example: 'ipv6 dhcp pool IPV6_POOL<br>dns-server 2001:db8::8888<br>domain-name example.com',
           category: 'ipv6',
           keywords: ['ipv6', 'dhcp', 'szerver', 'cím', 'kiosztás'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'ipv6 ospf',
@@ -609,7 +609,7 @@ export default {
           example: 'interface gigabitethernet 0/0<br>ipv6 ospf 1 area 0',
           category: 'ipv6',
           keywords: ['ipv6', 'ospf', 'ospfv3', 'routing', 'protokoll'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
 
         {
@@ -618,7 +618,7 @@ export default {
           example: 'ip ssh version 2',
           category: 'ssh',
           keywords: ['ssh', 'verzió', 'biztonság', 'protokoll', 'beállítás'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'ip ssh authentication-retries',
@@ -626,7 +626,7 @@ export default {
           example: 'ip ssh authentication-retries 3',
           category: 'ssh',
           keywords: ['ssh', 'hitelesítés', 'újrapróbálás', 'biztonság', 'belépés'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'ip ssh time-out',
@@ -634,7 +634,7 @@ export default {
           example: 'ip ssh time-out 60',
           category: 'ssh',
           keywords: ['ssh', 'időtúllépés', 'idő', 'kapcsolat', 'biztonsági'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'ip ssh maxstartups',
@@ -642,7 +642,7 @@ export default {
           example: 'ip ssh maxstartups 5',
           category: 'ssh',
           keywords: ['ssh', 'kapcsolat', 'párhuzamos', 'maximum', 'korlátozás'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'ip dhcp pool',
@@ -650,7 +650,7 @@ export default {
           example: 'ip dhcp pool LAN_POOL<br>network 192.168.1.0 255.255.255.0<br>default-router 192.168.1.1<br>dns-server 8.8.8.8',
           category: 'dhcp',
           keywords: ['dhcp', 'pool', 'ip', 'kiosztás', 'automatikus'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'ip dhcp excluded-address',
@@ -658,7 +658,7 @@ export default {
           example: 'ip dhcp excluded-address 192.168.1.1 192.168.1.10',
           category: 'dhcp',
           keywords: ['dhcp', 'kizárás', 'cím', 'tartomány', 'foglalt'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'show ip dhcp binding',
@@ -666,7 +666,7 @@ export default {
           example: 'show ip dhcp binding',
           category: 'dhcp',
           keywords: ['dhcp', 'kiosztás', 'bérlés', 'mac', 'ip'],
-          mode: 'User EXEC'
+          mode: 'Felhasználói EXEC'
         },
         {
           command: 'ip helper-address',
@@ -674,7 +674,7 @@ export default {
           example: 'interface gigabitethernet 0/0<br>ip helper-address 192.168.2.10',
           category: 'dhcp',
           keywords: ['dhcp', 'relay', 'továbbítás', 'segítő', 'broadcast'],
-          mode: 'Interface Configuration'
+          mode: 'Interfész Konfiguráció'
         },
         {
           command: 'ip dhcp relay information trusted',
@@ -682,7 +682,7 @@ export default {
           example: 'interface gigabitethernet 0/0<br>ip dhcp relay information trusted',
           category: 'dhcp',
           keywords: ['dhcp', 'relay', 'bizalmi', 'opció', 'információ'],
-          mode: 'Interface Configuration'
+          mode: 'Interfész Konfiguráció'
         },
         {
           command: 'ip nat inside',
@@ -690,7 +690,7 @@ export default {
           example: 'interface gigabitethernet 0/0<br>ip nat inside',
           category: 'nat',
           keywords: ['nat', 'belső', 'interfész', 'hálózat', 'címfordítás'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'ip nat outside',
@@ -698,7 +698,7 @@ export default {
           example: 'interface gigabitethernet 0/1<br>ip nat outside',
           category: 'nat',
           keywords: ['nat', 'külső', 'interfész', 'internet', 'címfordítás'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'ip nat inside source list',
@@ -706,7 +706,7 @@ export default {
           example: 'ip nat inside source list 1 interface gigabitethernet 0/1 overload',
           category: 'nat',
           keywords: ['nat', 'pat', 'túlterhelés', 'source', 'fordítás'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'ip nat inside source static',
@@ -714,7 +714,7 @@ export default {
           example: 'ip nat inside source static 192.168.1.10 203.0.113.5',
           category: 'nat',
           keywords: ['nat', 'statikus', 'fordítás', 'cím', 'leképezés'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'show ip nat translations',
@@ -722,7 +722,7 @@ export default {
           example: 'show ip nat translations',
           category: 'nat',
           keywords: ['nat', 'fordítás', 'tábla', 'állapot', 'kapcsolat'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'class-map',
@@ -730,7 +730,7 @@ export default {
           example: 'class-map match-all VOICE_TRAFFIC<br>match protocol rtp<br>match dscp ef',
           category: 'qos',
           keywords: ['qos', 'osztály', 'forgalom', 'minőség', 'politika'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'policy-map',
@@ -738,7 +738,7 @@ export default {
           example: 'policy-map QOS_POLICY<br>class VOICE_TRAFFIC<br>priority 256',
           category: 'qos',
           keywords: ['qos', 'szabályzat', 'politika', 'szolgáltatás', 'minőség'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'service-policy',
@@ -746,7 +746,7 @@ export default {
           example: 'interface gigabitethernet 0/0<br>service-policy output QOS_POLICY',
           category: 'qos',
           keywords: ['qos', 'szolgáltatás', 'alkalmazás', 'szabályzat', 'interfész'],
-          mode: 'Interface Configuration'
+          mode: 'Interfész Konfiguráció'
         },
         {
           command: 'mls qos',
@@ -754,7 +754,7 @@ export default {
           example: 'mls qos',
           category: 'qos',
           keywords: ['qos', 'mls', 'kapcsoló', 'engedélyezés', 'minőség'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'auto qos voip',
@@ -762,7 +762,7 @@ export default {
           example: 'interface gigabitethernet 0/1<br>auto qos voip cisco-phone',
           category: 'qos',
           keywords: ['qos', 'auto', 'voip', 'telefon', 'hang'],
-          mode: 'Interface Configuration'
+          mode: 'Interfész Konfiguráció'
         },
         {
           command: 'spanning-tree mode',
@@ -770,7 +770,7 @@ export default {
           example: 'spanning-tree mode rapid-pvst',
           category: 'stp',
           keywords: ['stp', 'spanning-tree', 'mód', 'rstp', 'pvst'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'spanning-tree vlan priority',
@@ -778,7 +778,7 @@ export default {
           example: 'spanning-tree vlan 10 priority 4096',
           category: 'stp',
           keywords: ['stp', 'prioritás', 'gyökér', 'híd', 'vlan'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'spanning-tree portfast',
@@ -786,7 +786,7 @@ export default {
           example: 'interface gigabitethernet 0/1<br>spanning-tree portfast',
           category: 'stp',
           keywords: ['stp', 'portfast', 'gyors', 'konvergencia', 'állomás'],
-          mode: 'Interface Configuration'
+          mode: 'Interfész Konfiguráció'
         },
         {
           command: 'spanning-tree bpduguard',
@@ -794,7 +794,7 @@ export default {
           example: 'interface gigabitethernet 0/1<br>spanning-tree bpduguard enable',
           category: 'stp',
           keywords: ['stp', 'bpduguard', 'védelem', 'hurok', 'biztonság'],
-          mode: 'Interface Configuration'
+          mode: 'Interfész Konfiguráció'
         },
         {
           command: 'show spanning-tree',
@@ -802,7 +802,7 @@ export default {
           example: 'show spanning-tree',
           category: 'stp',
           keywords: ['stp', 'állapot', 'információ', 'port', 'gyökér'],
-          mode: 'User EXEC'
+          mode: 'Felhasználói EXEC'
         },
         {
           command: 'ping',
@@ -810,7 +810,7 @@ export default {
           example: 'ping 192.168.1.1',
           category: 'troubleshooting',
           keywords: ['ping', 'elérhetőség', 'teszt', 'icmp', 'kapcsolat'],
-          mode: 'User EXEC'
+          mode: 'Felhasználói EXEC'
         },
         {
           command: 'traceroute',
@@ -818,7 +818,7 @@ export default {
           example: 'traceroute 8.8.8.8',
           category: 'troubleshooting',
           keywords: ['nyomkövetés', 'útvonal', 'hop', 'követés', 'cél'],
-          mode: 'User EXEC'
+          mode: 'Felhasználói EXEC'
         },
         {
           command: 'debug',
@@ -826,7 +826,7 @@ export default {
           example: 'debug ip ospf events',
           category: 'troubleshooting',
           keywords: ['hibakeresés', 'debug', 'követés', 'elemzés', 'diagnosztika'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'show tech-support',
@@ -834,7 +834,7 @@ export default {
           example: 'show tech-support',
           category: 'troubleshooting',
           keywords: ['támogatás', 'technikai', 'diagnosztika', 'információ', 'hiba'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'show log',
@@ -842,7 +842,7 @@ export default {
           example: 'show log',
           category: 'troubleshooting',
           keywords: ['napló', 'log', 'hiba', 'üzenet', 'esemény'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'enable',
@@ -850,7 +850,7 @@ export default {
           example: 'Router> enable\nRouter#',
           category: 'modes',
           keywords: ['privilegizált', 'belépés', 'mód', 'exec', 'admin'],
-          mode: 'User EXEC'
+          mode: 'Felhasználói EXEC'
         },
         {
           command: 'disable',
@@ -858,7 +858,7 @@ export default {
           example: 'Router# disable\nRouter>',
           category: 'modes',
           keywords: ['kilépés', 'visszatérés', 'mód', 'felhasználói', 'user'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'configure terminal',
@@ -866,7 +866,7 @@ export default {
           example: 'Router# configure terminal\nRouter(config)#',
           category: 'modes',
           keywords: ['globális', 'konfiguráció', 'belépés', 'mód', 'config'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'exit',
@@ -874,7 +874,7 @@ export default {
           example: 'Router(config)# exit\nRouter#',
           category: 'modes',
           keywords: ['kilépés', 'vissza', 'előző', 'mód', 'befejezés'],
-          mode: 'Any Configuration Mode'
+          mode: 'Bármely Konfigurációs Mód'
         },
         {
           command: 'end',
@@ -882,7 +882,7 @@ export default {
           example: 'Router(config-if)# end\nRouter#',
           category: 'modes',
           keywords: ['kilépés', 'privilegizált', 'közvetlen', 'vissza', 'ctrl+z'],
-          mode: 'Any Configuration Mode'
+          mode: 'Bármely Konfigurációs Mód'
         },
         {
           command: 'interface',
@@ -890,7 +890,7 @@ export default {
           example: 'Router(config)# interface gigabitethernet 0/1\nRouter(config-if)#',
           category: 'modes',
           keywords: ['interfész', 'konfiguráció', 'belépés', 'port', 'mód'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'line',
@@ -898,7 +898,7 @@ export default {
           example: 'Router(config)# line console 0\nRouter(config-line)#',
           category: 'modes',
           keywords: ['vonal', 'konzol', 'vty', 'konfiguráció', 'mód'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'router',
@@ -906,7 +906,7 @@ export default {
           example: 'Router(config)# router ospf 1\nRouter(config-router)#',
           category: 'modes',
           keywords: ['routing', 'protokoll', 'ospf', 'eigrp', 'konfiguráció'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'vlan',
@@ -914,7 +914,7 @@ export default {
           example: 'Switch(config)# vlan 10\nSwitch(config-vlan)#',
           category: 'modes',
           keywords: ['vlan', 'konfiguráció', 'virtuális', 'lan', 'kapcsoló'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'do',
@@ -922,7 +922,7 @@ export default {
           example: 'Router(config)# do show ip interface brief',
           category: 'modes',
           keywords: ['exec', 'parancs', 'futtatás', 'konfiguráció', 'módból'],
-          mode: 'Any Configuration Mode'
+          mode: 'Bármely Konfigurációs Mód'
         },
         {
           command: 'write memory',
@@ -930,7 +930,7 @@ export default {
           example: 'Router# write memory',
           category: 'basic-config',
           keywords: ['mentés', 'memória', 'konfiguráció', 'startup', 'tárolás'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'show startup-config',
@@ -938,7 +938,7 @@ export default {
           example: 'Router# show startup-config',
           category: 'system-info',
           keywords: ['indítás', 'konfiguráció', 'startup', 'nvram', 'mentett'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'erase startup-config',
@@ -946,7 +946,7 @@ export default {
           example: 'Router# erase startup-config',
           category: 'basic-config',
           keywords: ['törlés', 'gyári', 'visszaállítás', 'reset', 'alaphelyzet'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'reload',
@@ -954,7 +954,7 @@ export default {
           example: 'Router# reload',
           category: 'basic-config',
           keywords: ['újraindítás', 'reset', 'boot', 'indítás', 'restart'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'show cdp neighbors',
@@ -962,7 +962,7 @@ export default {
           example: 'Router# show cdp neighbors',
           category: 'system-info',
           keywords: ['cdp', 'szomszéd', 'discovery', 'detektálás', 'eszköz'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'show protocols',
@@ -970,7 +970,7 @@ export default {
           example: 'Router# show protocols',
           category: 'system-info',
           keywords: ['protokoll', 'állapot', 'l3', 'hálózati', 'interfész'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'show flash',
@@ -978,7 +978,7 @@ export default {
           example: 'Router# show flash',
           category: 'system-info',
           keywords: ['flash', 'memória', 'ios', 'image', 'tárhely'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'show vtp status',
@@ -986,7 +986,7 @@ export default {
           example: 'Switch# show vtp status',
           category: 'vlan',
           keywords: ['vtp', 'állapot', 'verzió', 'domain', 'konfiguráció'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'show arp',
@@ -994,7 +994,7 @@ export default {
           example: 'Router# show arp',
           category: 'troubleshooting',
           keywords: ['arp', 'tábla', 'mac', 'ip', 'cím'],
-          mode: 'Privileged EXEC'
+          mode: 'Privilegizált EXEC'
         },
         {
           command: 'switchport port-security violation',
@@ -1002,7 +1002,7 @@ export default {
           example: 'Switch(config-if)# switchport port-security violation shutdown',
           category: 'security',
           keywords: ['port', 'biztonság', 'szabálysértés', 'shutdown', 'restrict'],
-          mode: 'Interface Configuration'
+          mode: 'Interfész Konfiguráció'
         },
         {
           command: 'ip dhcp client',
@@ -1010,7 +1010,7 @@ export default {
           example: 'Router(config-if)# ip address dhcp',
           category: 'dhcp',
           keywords: ['dhcp', 'kliens', 'automatikus', 'ip', 'cím'],
-          mode: 'Interface Configuration'
+          mode: 'Interfész Konfiguráció'
         },
         {
           command: 'ip domain-name',
@@ -1018,7 +1018,7 @@ export default {
           example: 'Router(config)# ip domain-name halozat.local',
           category: 'basic-config',
           keywords: ['domain', 'név', 'dns', 'hálózat', 'azonosító'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'clock timezone',
@@ -1026,7 +1026,7 @@ export default {
           example: 'Router(config)# clock timezone CET 1',
           category: 'basic-config',
           keywords: ['időzóna', 'óra', 'idő', 'rendszer', 'beállítás'],
-          mode: 'Global Configuration'
+          mode: 'Globális Konfiguráció'
         },
         {
           command: 'no shutdown',
@@ -1034,7 +1034,7 @@ export default {
           example: 'Router(config-if)# no shutdown',
           category: 'interface',
           keywords: ['bekapcsolás', 'aktiválás', 'interfész', 'port', 'engedélyezés'],
-          mode: 'Interface Configuration'
+          mode: 'Interfész Konfiguráció'
         },
         {
           command: 'shutdown',
@@ -1042,7 +1042,7 @@ export default {
           example: 'Router(config-if)# shutdown',
           category: 'interface',
           keywords: ['kikapcsolás', 'deaktiválás', 'interfész', 'port', 'letiltás'],
-          mode: 'Interface Configuration'
+          mode: 'Interfész Konfiguráció'
         },
       ] as CiscoCommands[],
     };
@@ -1089,9 +1089,6 @@ export default {
     formatExample(example: string): string {
       return example.replace(/\n/g, '<br>');
     },
-    translateMode(mode: string): string {
-      return this.modeTranslations[mode] || mode;
-    }
   }
 };
 </script>
@@ -1155,8 +1152,8 @@ export default {
               <pre><code v-html="formatExample(command.example)"></code></pre>
             </td>
             <td class="mode-cell">
-              <span class="mode-tooltip" :data-original="command.mode">
-                {{ translateMode(command.mode) }}
+              <span class="mode-tooltip" :data-original="command.mode" @click="searchQuery = command.mode">
+                {{ command.mode }}
               </span>
             </td>
             <td>
