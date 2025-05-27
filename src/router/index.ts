@@ -1,13 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import CiscoCommands from '../views/CiscoCommands.vue'
+import PythonView from '../views/PythonView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView,
+      name: 'cisco-commands',
+      component: CiscoCommands,
+    },
+    {
+      path: '/python',
+      name: 'python-view',
+      component: PythonView,
     },
   ],
 })

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cisco Cuccok</title>
+    <title>Ágazati Cuccok</title>
   </head>
   <body>
     <div id="app"></div>
@@ -22,5 +22,32 @@
     background-color: var(--bg-color);
     color: var(--text-color);
     font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    color: white;
+  }
+
+  a {
+    text-decoration: none;
+
+    button {
+      background-color: rgba(70, 130, 180, 0.8);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: rgba(70, 130, 180, 1);
+      }
+    }
   }
 </style>
