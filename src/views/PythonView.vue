@@ -120,35 +120,80 @@ export default {
 .navbar {
   position: sticky;
   top: 0;
-  background-color: rgb(0, 0, 0);
+  background-color: #111;
   padding: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  z-index: 10;
+  gap: 0.75rem;
+  border-bottom: 1px solid #222;
+  z-index: 100;
+}
 
-  .line {
-    width: 1px;
-    height: 1.5rem;
-    background-color: rgba(255, 255, 255, 0.2);
-    margin: 0 0.5rem;
-  }
+.navbar a button {
+  background-color: transparent;
+  border: 1px solid #333;
+  color: #ccc;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.navbar a button:hover {
+  background-color: #222;
+  color: #fff;
+  border-color: #555;
+}
+
+.navbar .line {
+  width: 1px;
+  height: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .box {
-  padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-
-  .part {
-    margin-bottom: 3.5rem;
-  }
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.03);
+  margin-bottom: 2rem;
 }
 
-.line {
-  width: 100%;
-  margin: 2rem 0;
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  color: #ffffff;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  color: #90cdf4;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  color: #63b3ed;
+}
+
+p {
+  margin: 0.75rem 0;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+hr.line {
+  border: none;
+  border-top: 1px solid #333;
+  margin: 3rem 0;
+}
+
+.part {
+  margin-bottom: 3rem;
 }
 </style>
