@@ -9,7 +9,7 @@ export default {
     copybutton: {
       type: Boolean,
       default: true
-    }
+    },
   },
   data() {
     return {
@@ -19,8 +19,18 @@ export default {
   },
   methods: {
     formatCode(code: string): string {
-      return code.replace(/\n/g, '<br>');
+      return this.escapeHtml(code);
     },
+
+    escapeHtml(code: string): string {
+      return code
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    },
+
     copyCode() {
       const textToCopy = this.code
         .replace(/<br\s*\/?>/gi, '\n') // Convert <br> tags to newlines
@@ -45,7 +55,6 @@ export default {
   }
 };
 </script>
-
 
 <template>
   <div class="code-block-container">
