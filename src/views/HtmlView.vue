@@ -8,6 +8,8 @@ export default {
   },
   data() {
     return {
+      link: '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">',
+      examplebutton: '<button class=\" btn btn-primary\">Bootstrap gomb</button>`'
     };
   },
 }
@@ -16,19 +18,152 @@ export default {
 <template>
   <main class="container">
     <div class="navbar">
-      <a href="#if-else"><button>If-else</button></a>
+      <a href="#alapok"><button>Alapok</button></a>
+      <a href="#css"><button>CSS</button></a>
+      <a href="#bootstrap"><button>Bootstrap</button></a>
     </div>
     <div class="box">
       <h1></h1>
 
-      <div class="part" id="if-else">
+      <div class="part" id="alapok">
         <h2>Alapok</h2>
         <p>Ha esetleg nem lenne megadva az alap ágazati, amit kétlek. <b>De azért itt van</b> egy alap, hogy hogyan
           kell felépíteni egy HTML weblapot.</p>
         <CodeBlock
           :code="`<!DOCTYPE html>\n<html>\n<head>\n<title>Page Title</title>\n</head>\n<body>\n<h1>This is a Heading</h1>\n<p>This is a paragraph.</p>\n</body>\n</html>`" />
         <h3>Kimenet:</h3>
-        <CodeBlock code="" />
+        <div class="iframe">
+          <iframe srcdoc="<!DOCTYPE html>
+          <html>
+          <head>
+            <title>Page Title</title>
+          </head>
+          <body>
+            <h1>This is a Heading</h1>
+            <p>This is a paragraph.</p>
+          </body>
+          </html>" frameborder="0">
+          </iframe>
+        </div>
+
+        <h2>Alap tagek:</h2>
+        <table class="ws-table-all notranslate"
+          style="box-sizing: inherit; border-collapse: collapse; border-spacing: 0px; width: 914.156px; display: table; border: 1px solid rgb(204, 204, 204); margin: 20px 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif; font-size: 15px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">
+          <tbody style="box-sizing: inherit;">
+            <tr
+              style="box-sizing: inherit; border-bottom: 1px solid rgb(221, 221, 221); background-color: rgb(255, 255, 255);">
+              <th
+                style="box-sizing: inherit; padding: 8px 8px 8px 16px; display: table-cell; text-align: left; vertical-align: top;">
+                Start tag</th>
+              <th
+                style="box-sizing: inherit; padding: 8px; display: table-cell; text-align: left; vertical-align: top;">
+                Element content</th>
+              <th
+                style="box-sizing: inherit; padding: 8px; display: table-cell; text-align: left; vertical-align: top;">
+                End tag</th>
+            </tr>
+            <tr
+              style="box-sizing: inherit; border-bottom: 1px solid rgb(221, 221, 221); background-color: rgb(231, 233, 235);">
+              <td
+                style="box-sizing: inherit; padding: 8px 8px 8px 16px; display: table-cell; text-align: left; vertical-align: top;">
+                &lt;h1&gt;</td>
+              <td
+                style="box-sizing: inherit; padding: 8px; display: table-cell; text-align: left; vertical-align: top;">
+                My First Heading</td>
+              <td
+                style="box-sizing: inherit; padding: 8px; display: table-cell; text-align: left; vertical-align: top;">
+                &lt;/h1&gt;</td>
+            </tr>
+            <tr
+              style="box-sizing: inherit; border-bottom: 1px solid rgb(221, 221, 221); background-color: rgb(255, 255, 255);">
+              <td
+                style="box-sizing: inherit; padding: 8px 8px 8px 16px; display: table-cell; text-align: left; vertical-align: top;">
+                &lt;p&gt;</td>
+              <td
+                style="box-sizing: inherit; padding: 8px; display: table-cell; text-align: left; vertical-align: top;">
+                My first paragraph.</td>
+              <td
+                style="box-sizing: inherit; padding: 8px; display: table-cell; text-align: left; vertical-align: top;">
+                &lt;/p&gt;</td>
+            </tr>
+            <tr
+              style="box-sizing: inherit; border-bottom: 1px solid rgb(221, 221, 221); background-color: rgb(231, 233, 235);">
+              <td
+                style="box-sizing: inherit; padding: 8px 8px 8px 16px; display: table-cell; text-align: left; vertical-align: top;">
+                &lt;br&gt;</td>
+              <td
+                style="box-sizing: inherit; padding: 8px; display: table-cell; text-align: left; vertical-align: top;">
+                <em style="box-sizing: inherit;">none</em>
+              </td>
+              <td
+                style="box-sizing: inherit; padding: 8px; display: table-cell; text-align: left; vertical-align: top;">
+                <em style="box-sizing: inherit;">none</em>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <!-- CSS Basics Section -->
+      <div class="part" id="css">
+        <h2>CSS alapok</h2>
+        <p>A CSS (Cascading Style Sheets) segítségével tudod formázni a HTML elemeket. Például színeket, betűméretet,
+          elrendezést adhatsz meg.</p>
+        <CodeBlock
+          :code="`<!DOCTYPE html>\n<html>\n<head>\n<style>\nh1 { color: blue; }\np { color: green; font-size: 18px; }\n</style>\n</head>\n<body>\n<h1>Cím</h1>\n<p>Ez egy bekezdés.</p>\n</body>\n</html>`" />
+        <h3>Kimenet:</h3>
+        <div class="iframe">
+          <iframe srcdoc="<!DOCTYPE html>
+          <html>
+          <head>
+            <style>
+              h1 { color: blue; }
+              p { color: green; font-size: 18px; }
+            </style>
+          </head>
+          <body>
+            <h1>Cím</h1>
+            <p>Ez egy bekezdés.</p>
+          </body>
+          </html>" frameborder="0"></iframe>
+        </div>
+        <h4>CSS beillesztése</h4>
+        <ul>
+          <li><b>Belső stílus:</b> &lt;style&gt; tag a &lt;head&gt;-ben</li>
+          <li><b>Külső stíluslap:</b> &lt;link rel="stylesheet" href="style.css"&gt;</li>
+          <li><b>Soron belüli stílus:</b> &lt;tag style="color: red;"&gt;Szöveg&lt;/tag&gt;</li>
+        </ul>
+      </div>
+
+      <!-- Bootstrap Section -->
+      <div class="part" id="bootstrap">
+        <h2>Bootstrap használata</h2>
+        <p>A <b>Bootstrap</b> egy népszerű CSS keretrendszer, amivel gyorsan készíthetsz modern, reszponzív
+          weboldalakat.</p>
+        <p>Bootstrap használatához illeszd be ezt a sort a &lt;head&gt;-be:</p>
+        <CodeBlock :code="link" />
+        <p>Példa egy Bootstrap gombra:</p>
+        <CodeBlock :code="examplebutton" />
+        <h3>Kimenet:</h3>
+        <div class="iframe">
+          <iframe srcdoc="<!DOCTYPE html>
+          <html>
+          <head>
+            <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'>
+          </head>
+          <body>
+            <button class='btn btn-primary'>Bootstrap gomb</button>
+          </body>
+          </html>" frameborder="0"></iframe>
+        </div>
+        <h4>További Bootstrap elemek:</h4>
+        <ul>
+          <li><code>&lt;div class="container"&gt;...&lt;/div&gt;</code> – középre igazított tartalom</li>
+          <li><code>&lt;button class="btn btn-success"&gt;Zöld gomb&lt;/button&gt;</code></li>
+          <li><code>&lt;input class="form-control"&gt;</code> – szépített űrlapmező</li>
+        </ul>
+        <p>További infó: <a href="https://getbootstrap.com/" target="_blank">getbootstrap.com</a></p>
       </div>
     </div>
     <hr class="line" />
@@ -70,6 +205,15 @@ export default {
   width: 1px;
   height: 1.5rem;
   background-color: rgba(255, 255, 255, 0.15);
+}
+
+.iframe {
+  width: 100%;
+  height: 200px;
+  border: none;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .box {
