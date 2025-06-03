@@ -218,7 +218,7 @@ export default {
   </main>
 </template>
 
-<style>
+<style scoped>
 .navbar {
   position: sticky;
   top: 0;
