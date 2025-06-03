@@ -1,16 +1,16 @@
 <script lang="ts">
-import CodeBlock from '@/components/CodeBlock.vue';
+import CodeBlock from '@/components/CodeBlock.vue'
 
 export default {
   name: 'PythonView',
   components: {
-    CodeBlock
+    CodeBlock,
   },
   data() {
     return {
       link: '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">',
-      examplebutton: '<button class=\" btn btn-primary\">Bootstrap gomb</button>`'
-    };
+      examplebutton: '<button class=\" btn btn-primary\">Bootstrap gomb</button>`',
+    }
   },
 }
 </script>
@@ -22,151 +22,228 @@ export default {
       <a href="#css"><button>CSS</button></a>
       <a href="#bootstrap"><button>Bootstrap</button></a>
     </div>
-    <div class="box">
-      <h1></h1>
 
+    <div class="box">
       <div class="part" id="alapok">
         <h2>Alapok</h2>
-        <p>Ha esetleg nem lenne megadva az alap ágazati, amit kétlek. <b>De azért itt van</b> egy alap, hogy hogyan
-          kell felépíteni egy HTML weblapot.</p>
+        <p>HTML oldal alapstruktúrája:</p>
         <CodeBlock
-          :code="`<!DOCTYPE html>\n<html>\n<head>\n<title>Page Title</title>\n</head>\n<body>\n<h1>This is a Heading</h1>\n<p>This is a paragraph.</p>\n</body>\n</html>`" />
+          :code="`<!DOCTYPE html>\n<html>\n<head>\n<title>Oldal címe</title>\n</head>\n<body>\n<h1>Üdv!</h1>\n<p>Ez egy bekezdés.</p>\n</body>\n</html>`" />
+        <h3>Kimenet:</h3>
+        <div class="iframe">
+          <iframe
+            srcdoc="<!DOCTYPE html><html><head><title>Oldal címe</title></head><body><h1>Üdv!</h1><p>Ez egy bekezdés.</p></body></html>"
+            frameborder="0"></iframe>
+        </div>
+
+        <h4>Gyakori HTML tagek</h4>
+        <CodeBlock
+          :code="`<h1>Főcím</h1>\n<h2>Alcím</h2>\n<p>Ez egy bekezdés.</p>\n<!-- Új sor -->\n<br>\n<!-- Link -->\n<a href='https://example.com'>Kattints ide!</a>\n<!-- Kép beszúrás -->\n<img src='https://via.placeholder.com/150' alt='Példa kép'>\n<!-- Lista -->\n<ul>\n  <li>Listaelem 1</li>\n  <li>Listaelem 2</li>\n</ul>\n<!-- Táblázat -->\n<table border='1'>\n  <tr><th>Név</th><th>Kor</th></tr>\n  <tr><td>Anna</td><td>16</td></tr>\n</table>`" />
+
         <h3>Kimenet:</h3>
         <div class="iframe">
           <iframe srcdoc="<!DOCTYPE html>
-          <html>
-          <head>
-            <title>Page Title</title>
-          </head>
-          <body>
-            <h1>This is a Heading</h1>
-            <p>This is a paragraph.</p>
-          </body>
-          </html>" frameborder="0">
+      <html>
+      <body>
+        <h1>Főcím</h1>
+        <h2>Alcím</h2>
+        <p>Ez egy bekezdés.</p>
+        <!-- Új sor -->
+        <br>
+        <!-- Link -->
+        <a href='https://example.com' target='_blank'>Kattints ide!</a>
+        <!-- Új sor -->
+        <br>
+        <!-- Kép -->
+        <img src='https://mozisarok.hu/img/logos/logo-w64.avif' alt='Példa kép'>
+        <!-- Lista -->
+        <ul>
+          <li>Listaelem 1</li>
+          <li>Listaelem 2</li>
+        </ul>
+        <!-- Táblázat -->
+        <table border='1'>
+          <tr><th>Név</th><th>Kor</th></tr>
+          <tr><td>Anna</td><td>16</td></tr>
+        </table>
+      </body>
+      </html>" frameborder="0"></iframe>
+        </div>
+
+        <h4>Magyarázat</h4>
+        <ul>
+          <li><code>&lt;h1&gt;</code> – főcímsor, <code>&lt;h2&gt;</code> – alcím</li>
+          <li><code>&lt;p&gt;</code> – bekezdés (paragrafus)</li>
+          <li><code>&lt;br&gt;</code> – sortörés</li>
+          <li><code>&lt;a&gt;</code> – hivatkozás (link)</li>
+          <li><code>&lt;img&gt;</code> – kép beszúrása</li>
+          <li><code>&lt;ul&gt;</code> + <code>&lt;li&gt;</code> – rendezetlen lista</li>
+          <li><code>&lt;table&gt;</code> + <code>&lt;tr&gt;</code> + <code>&lt;td&gt;</code>/<code>&lt;th&gt;</code> –
+            táblázat</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="line" />
+    <!-- CSS -->
+    <div class="box">
+      <div class="part" id="css">
+        <h2>CSS alapok</h2>
+        <p>A CSS segítségével megformázhatjuk az elemeket. Például:</p>
+        <CodeBlock
+          :code="`h1 {\n  color: red;\n  text-align: center;\n}\n\np {\n  font-size: 18px;\n  background-color: #f0f0f0;\n  padding: 10px;\n}`" />
+        <h3>Kimenet:</h3>
+        <div class="iframe">
+          <iframe srcdoc="<!DOCTYPE html>
+            <html>
+            <head>
+              <style>
+                h1 { color: red; text-align: center; }
+                p { font-size: 18px; background-color: #f0f0f0; padding: 10px; }
+              </style>
+            </head>
+            <body>
+              <h1>Címsor</h1>
+              <p>Formázott bekezdés</p>
+            </body>
+            </html>" frameborder="0">
           </iframe>
         </div>
 
-        <h2>Alap tagek:</h2>
-        <table class="ws-table-all notranslate"
-          style="box-sizing: inherit; border-collapse: collapse; border-spacing: 0px; width: 914.156px; display: table; border: 1px solid rgb(204, 204, 204); margin: 20px 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif; font-size: 15px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">
-          <tbody style="box-sizing: inherit;">
-            <tr
-              style="box-sizing: inherit; border-bottom: 1px solid rgb(221, 221, 221); background-color: rgb(255, 255, 255);">
-              <th
-                style="box-sizing: inherit; padding: 8px 8px 8px 16px; display: table-cell; text-align: left; vertical-align: top;">
-                Start tag</th>
-              <th
-                style="box-sizing: inherit; padding: 8px; display: table-cell; text-align: left; vertical-align: top;">
-                Element content</th>
-              <th
-                style="box-sizing: inherit; padding: 8px; display: table-cell; text-align: left; vertical-align: top;">
-                End tag</th>
-            </tr>
-            <tr
-              style="box-sizing: inherit; border-bottom: 1px solid rgb(221, 221, 221); background-color: rgb(231, 233, 235);">
-              <td
-                style="box-sizing: inherit; padding: 8px 8px 8px 16px; display: table-cell; text-align: left; vertical-align: top;">
-                &lt;h1&gt;</td>
-              <td
-                style="box-sizing: inherit; padding: 8px; display: table-cell; text-align: left; vertical-align: top;">
-                My First Heading</td>
-              <td
-                style="box-sizing: inherit; padding: 8px; display: table-cell; text-align: left; vertical-align: top;">
-                &lt;/h1&gt;</td>
-            </tr>
-            <tr
-              style="box-sizing: inherit; border-bottom: 1px solid rgb(221, 221, 221); background-color: rgb(255, 255, 255);">
-              <td
-                style="box-sizing: inherit; padding: 8px 8px 8px 16px; display: table-cell; text-align: left; vertical-align: top;">
-                &lt;p&gt;</td>
-              <td
-                style="box-sizing: inherit; padding: 8px; display: table-cell; text-align: left; vertical-align: top;">
-                My first paragraph.</td>
-              <td
-                style="box-sizing: inherit; padding: 8px; display: table-cell; text-align: left; vertical-align: top;">
-                &lt;/p&gt;</td>
-            </tr>
-            <tr
-              style="box-sizing: inherit; border-bottom: 1px solid rgb(221, 221, 221); background-color: rgb(231, 233, 235);">
-              <td
-                style="box-sizing: inherit; padding: 8px 8px 8px 16px; display: table-cell; text-align: left; vertical-align: top;">
-                &lt;br&gt;</td>
-              <td
-                style="box-sizing: inherit; padding: 8px; display: table-cell; text-align: left; vertical-align: top;">
-                <em style="box-sizing: inherit;">none</em>
-              </td>
-              <td
-                style="box-sizing: inherit; padding: 8px; display: table-cell; text-align: left; vertical-align: top;">
-                <em style="box-sizing: inherit;">none</em>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <h3>Hogyan is épül össze a css?</h3>
+        <CodeBlock :code="`.pelda {\n color: red;\n text-align:center;\n}`"></CodeBlock>
+        <p>Az előző példában a <code>.pelda</code> egy osztály, amit a HTML elemekhez rendelhetünk.</p>
+        <p>Az osztályokat a HTML-ben a <code>class</code> attribútummal használjuk:</p>
+        <CodeBlock :code="`<p class='pelda'>Ez egy példa bekezdés.</p>`" />
+        <h3>Kimenet:</h3>
+        <div class="iframe">
+          <iframe srcdoc="<!DOCTYPE html>
+            <html>
+            <head>
+              <style>
+                .pelda { color: red; text-align: center; }
+              </style>
+            </head>
+            <body>
+              <p class='pelda'>Ez egy példa bekezdés.</p>
+            </body>
+            </html>" frameborder="0"></iframe>
+        </div>
 
-      </div>
+        <p>Egy css rész úgy áll össze hogy elsőnek megadjuk a nevét az adott osztálynak, id-nek vagy tag-nek.</p>
+        <div style="font-weight: 800;">
+          <p>Ha egy osztályról van szó akkor az osztály neve elején szerpel a <code>"pont"</code> például:
+            <code>.pelda</code>
+          </p>
+          <p>Ha egy id-ről van szó akkor az id neve elején szerpel a <code>"hashtag"</code> például: <code>#pelda</code>
+          </p>
+          <p>Ha egy tag-ről van szó akkor csak a tag neve szerepel például: <code>p</code></p>
+        </div>
+        <br>
 
-      <!-- CSS Basics Section -->
-      <div class="part" id="css">
-        <h2>CSS alapok</h2>
-        <p>A CSS (Cascading Style Sheets) segítségével tudod formázni a HTML elemeket. Például színeket, betűméretet,
-          elrendezést adhatsz meg.</p>
+        <h4>További CSS stílus példák</h4>
         <CodeBlock
-          :code="`<!DOCTYPE html>\n<html>\n<head>\n<style>\nh1 { color: blue; }\np { color: green; font-size: 18px; }\n</style>\n</head>\n<body>\n<h1>Cím</h1>\n<p>Ez egy bekezdés.</p>\n</body>\n</html>`" />
-        <h3>Kimenet:</h3>
-        <div class="iframe">
-          <iframe srcdoc="<!DOCTYPE html>
-          <html>
-          <head>
-            <style>
-              h1 { color: blue; }
-              p { color: green; font-size: 18px; }
-            </style>
-          </head>
-          <body>
-            <h1>Cím</h1>
-            <p>Ez egy bekezdés.</p>
-          </body>
-          </html>" frameborder="0"></iframe>
-        </div>
-        <h4>CSS beillesztése</h4>
-        <ul>
-          <li><b>Belső stílus:</b> &lt;style&gt; tag a &lt;head&gt;-ben</li>
-          <li><b>Külső stíluslap:</b> &lt;link rel="stylesheet" href="style.css"&gt;</li>
-          <li><b>Soron belüli stílus:</b> &lt;tag style="color: red;"&gt;Szöveg&lt;/tag&gt;</li>
-        </ul>
-      </div>
+          :code="`div {\n  margin: 20px;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0,0,0,0.2);\n  opacity: 0.9;\n}`" />
 
-      <!-- Bootstrap Section -->
-      <div class="part" id="bootstrap">
-        <h2>Bootstrap használata</h2>
-        <p>A <b>Bootstrap</b> egy népszerű CSS keretrendszer, amivel gyorsan készíthetsz modern, reszponzív
-          weboldalakat.</p>
-        <p>Bootstrap használatához illeszd be ezt a sort a &lt;head&gt;-be:</p>
-        <CodeBlock :code="link" />
-        <p>Példa egy Bootstrap gombra:</p>
-        <CodeBlock :code="examplebutton" />
-        <h3>Kimenet:</h3>
+        <h4>Betűtípus és árnyék</h4>
+        <CodeBlock :code="`h2 {\n  font-family: Arial, sans-serif;\n  text-shadow: 1px 1px 2px gray;\n}`" />
+
+        <h4>Lebegtetés és szélesség</h4>
+        <CodeBlock :code="`img {\n  float: right;\n  width: 150px;\n  height: auto;\n}`" />
+
+        <h4>Hover effektus</h4>
+        <CodeBlock :code="`button:hover {\n  background-color: #007bff;\n  color: white;\n}`" />
+        <h3>Kimenet (hover és float):</h3>
         <div class="iframe">
           <iframe srcdoc="<!DOCTYPE html>
-          <html>
-          <head>
-            <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'>
-          </head>
-          <body>
-            <button class='btn btn-primary'>Bootstrap gomb</button>
-          </body>
-          </html>" frameborder="0"></iframe>
+            <html>
+            <head>
+              <style>
+                button:hover { background-color: #007bff; color: white; }
+                img { float: right; width: 100px; margin-left: 10px; }
+              </style>
+            </head>
+            <body>
+              <img src='https://mozisarok.hu/img/logos/logo-w64.avif' alt='kép'>
+              <p>Ez egy szöveg, ami mellé kép van lebegtetve.</p>
+              <button>Hover próbája</button>
+            </body>
+            </html>" frameborder="0"></iframe>
         </div>
-        <h4>További Bootstrap elemek:</h4>
-        <ul>
-          <li><code>&lt;div class="container"&gt;...&lt;/div&gt;</code> – középre igazított tartalom</li>
-          <li><code>&lt;button class="btn btn-success"&gt;Zöld gomb&lt;/button&gt;</code></li>
-          <li><code>&lt;input class="form-control"&gt;</code> – szépített űrlapmező</li>
-        </ul>
-        <p>További infó: <a href="https://getbootstrap.com/" target="_blank">getbootstrap.com</a></p>
+        <h4>Egyszerű animáció</h4>
+        <CodeBlock
+          :code="`@keyframes fadeIn {\n  from { opacity: 0; }\n  to { opacity: 1; }\n}\n\n.box {\n  animation: fadeIn 2s ease-in;\n}`" />
       </div>
     </div>
     <hr class="line" />
+    <div class="box">
+      <div class="part" id="bootstrap">
+        <h2>Bootstrap használata</h2>
+        <p>Illeszd be a következő sort a <code>&lt;head&gt;</code>-be:</p>
+        <CodeBlock :code="link" />
+
+        <h3>Gomb példa</h3>
+        <CodeBlock :code="examplebutton" />
+        <div class="iframe">
+          <iframe
+            srcdoc="<!DOCTYPE html><html><head><link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'></head><body><button class='btn btn-primary'>Bootstrap gomb</button></body></html>"
+            frameborder="0"></iframe>
+        </div>
+
+        <h4>Grid rendszer (rácselrendezés)</h4>
+        <CodeBlock
+          :code="`<div class='container'>\n  <div class='row'>\n    <div class='col'>1</div>\n    <div class='col'>2</div>\n    <div class='col'>3</div>\n  </div>\n</div>`" />
+        <div class="iframe">
+          <iframe
+            srcdoc="<!DOCTYPE html><html><head><link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'></head><body><div class='container'><div class='row'><div class='col bg-primary text-white'>1</div><div class='col bg-secondary text-white'>2</div><div class='col bg-success text-white'>3</div></div></div></body></html>"
+            frameborder="0"></iframe>
+        </div>
+
+        <h4>Kártya komponens</h4>
+        <CodeBlock
+          :code="`<div class='card' style='width: 18rem;'>\n  <img src='https://mozisarok.hu/img/logos/logo-w64.avif' class='card-img-top'>\n  <div class='card-body'>\n    <h5 class='card-title'>Kártya címe</h5>\n    <p class='card-text'>Pár soros leírás.</p>\n    <a href='#' class='btn btn-primary'>Tovább</a>\n  </div>\n</div>`" />
+        <div class="iframe">
+          <iframe
+            srcdoc="<!DOCTYPE html><html><head><link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'></head><body><div class='card' style='width: 18rem;'><img src='https://mozisarok.hu/img/logos/logo-w64.avif' class='card-img-top'><div class='card-body'><h5 class='card-title'>Kártya címe</h5><p class='card-text'>Pár soros leírás.</p><a href='#' class='btn btn-primary'>Tovább</a></div></div></body></html>"
+            frameborder="0"></iframe>
+        </div>
+
+        <h4>Alert (figyelmeztetés)</h4>
+        <CodeBlock :code="`<div class='alert alert-warning' role='alert'>\n  Ez egy figyelmeztetés!\n</div>`" />
+        <div class="iframe">
+          <iframe
+            srcdoc="<!DOCTYPE html><html><head><link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'></head><body><div class='alert alert-warning' role='alert'>Ez egy figyelmeztetés!</div></body></html>"
+            frameborder="0"></iframe>
+        </div>
+
+        <h4>Navigation bar</h4>
+        <CodeBlock
+          :code="`<nav class='navbar navbar-light bg-light'>\n  <a class='navbar-brand' href='#'>Navbar</a>\n</nav>`" />
+        <div class="iframe">
+          <iframe
+            srcdoc="<!DOCTYPE html><html><head><link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'></head><body><nav class='navbar navbar-light bg-light'><a class='navbar-brand' href='#'>Navbar</a></nav></body></html>"
+            frameborder="0"></iframe>
+        </div>
+
+        <h4>Kép formázás</h4>
+        <CodeBlock :code="`<img src='https://mozisarok.hu/img/logos/logo-w64.avif' class='img-fluid rounded'>`" />
+        <div class="iframe">
+          <iframe
+            srcdoc="<!DOCTYPE html><html><head><link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'></head><body><img src='https://mozisarok.hu/img/logos/logo-w64.avif' class='img-fluid rounded'></body></html>"
+            frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+    <hr class="line" />
+    <div class="box">
+      <h1 style="text-align: center;">Ha nem találsz meg valami akkor <span style="color: red;">skill issue</span>,
+        esetleg
+        próbálj meg <b>ctrl+f</b>-ben
+        rákeresi kulcsszavakra,
+        vagy
+        látogass el más oldalkra.</h1>
+    </div>
+    <hr class="line">
   </main>
 </template>
 
@@ -214,6 +291,12 @@ export default {
   background-color: #ffffff;
   border-radius: 8px;
   overflow: hidden;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
 }
 
 .box {
